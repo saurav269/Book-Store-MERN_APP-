@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&family=Poppins:wght@300;400&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* font-family: 'Poppins', sans-serif; */
+/* font-family: 'Playfair Display', serif; */
+
+/* //navbar css */
+
+.navbar {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  line-height: 25px;
+  text-transform: uppercase;
+  box-shadow: 0px 8px 6px -6px gray;
+  border-bottom: solid gray;
+  position: sticky;
+  top: 0px;
+}
+
+.nav-link{
+  font-weight: 300 !important;
+}
+
+.active {
+  border-bottom: 2px solid red;
+}
+.navbar-brand {
+  font-weight: 600;
+  font-family: 'roboto';
+  color: blue;
+}
+
+
+/* =================Footer================ */
+
+ .footer{
+  padding: 25px;
+  color: rgb(210, 215, 239);
+  background-color: rgb(50, 25, 150);
+  background: -webkit-linear-gradient(
+    to right,
+    rgb(192, 140, 192),
+    rgb(50, 25, 150)
+  );
+  background: linear-gradient(
+    to right,
+    rgb(192, 140, 192),
+    rgb(50, 25, 150)
+  );
+ }
+ .footer a {
+  text-decoration: none;
+  color: rgb(210, 215, 239);;
+  font-size: 20px;
+  padding: 10px;
+
+ }
+
+ .footer a:hover {
+     color: bisque;
+     border-bottom: 2px solid red;
+ }
+
+/* ================Page not found======= */
+.pnf{
+  /* border: 1px solid red; */
+  text-align: center;
+  margin-top: 6%;
+}
+.pnfBtn {
+  margin-top: 15px;
+}
+.pnfBtn button {
+  border: 1px solid black;
+  padding: 7px;
+  border-radius: 8px;
+}
