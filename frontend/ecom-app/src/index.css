@@ -80,3 +80,40 @@
   padding: 7px;
   border-radius: 8px;
 }
+
+/* ====================CONTACT US=============== */
+
+.contactus {
+  margin: 0;
+  padding: 0;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cntH1 {
+  border: 1px solid black;
+  text-align: center;
+  background-color: rgb(85, 85, 238);
+  color: white;
+  border-radius: 6px;
+}
+
+/* =========================About me====================== */
+
+.abtH1{
+  background-color: rgb(95, 187, 3);
+  text-align: center;
+  color: rgb(238, 238, 219);
+  border-radius: 6px;
+  border: 1px solid yellow;
+}
+
+/* =====================Register css======================== */
+.register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  flex-direction: column;
+}

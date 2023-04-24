@@ -6,7 +6,7 @@ import { Link, Navigate } from 'react-router-dom'
 const PagenotFound = () => {
 
   return (
-    <Layout>
+    <Layout title={'Go back'}>
       <div className='pnf'>
         <h1 style={{fontSize : "90px", fontWeight : "800px"}}>404</h1>
         <h2>Page Not Found!</h2>
