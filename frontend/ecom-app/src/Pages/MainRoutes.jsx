@@ -11,6 +11,9 @@ import PrivateRoute from '../Components/Routes/PrivateRoute'
 import ForgotPass from './Auth/ForgotPass'
 import AdminRoute from '../Components/Routes/AdminRoute'
 import AdminDashboard from './Admin/AdminDashboard'
+import CreateCategory from './Admin/CreateCategory'
+import CreateProduct from './Admin/CreateProduct'
+import Users from './Admin/Users'
 
 const MainRoutes = () => {
   return (
@@ -22,6 +25,9 @@ const MainRoutes = () => {
             </Route>
             <Route path='/dashboard' element={<AdminRoute />}>
               <Route path='admin' element={<AdminDashboard />} />
+              <Route path='admin/create-category' element={<CreateCategory />} />
+              <Route path='admin/create-product' element={<CreateProduct />} />
+              <Route path='admin/users' element={<Users />} />
             </Route>
             <Route path='/register' element={<Register />}/>
             <Route path='/forgot-password' element={<ForgotPass />}/>

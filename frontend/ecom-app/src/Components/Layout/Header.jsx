@@ -75,7 +75,7 @@ import { useAuth } from '../../Context/AuthContext'
                         <li>
                         <NavLink
                           onClick={handleLogout}
-                          to="/login"
+                          to="/"
                           className="dropdown-item"
                         >
                           Logout
