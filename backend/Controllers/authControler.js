@@ -58,7 +58,7 @@
          if(!email || !password){
             return res.status(404).send({
                success: false,
-               msg : 'Invalid email or password'
+               message : 'Invalid email or password'
             })
          }
          //check user
@@ -66,14 +66,14 @@
          if(!user){
             return res.status(404).send({
                success: false,
-               msg : 'Email is not registered'
+               message : 'Email is not registered'
             })
          }
          const match = await comparePassword(password, user.password)
          if(!match){
             return res.status(200).send({
                success: false,
-               msg : 'Invalid password'
+               message : 'Invalid password'
             })
          }
 
@@ -83,8 +83,9 @@
          });
          res.status(200).send({
             success:true,
-            msg : 'Login Successfully',
+            message : 'Login Successfully',
             user : {
+               _id : user._id,
                name : user.name,
                email : user.email,
                phone:user.phone
@@ -95,7 +96,7 @@
          console.log(err)
          res.status(500).send({
             success : false,
-            msg : 'msg in Login',
+            message : 'Error in Login',
             err
          })
       }

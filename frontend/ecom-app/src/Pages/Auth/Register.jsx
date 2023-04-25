@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import Layout from '../../Components/Layout/Layout'
 import toast from 'react-hot-toast';
-// import {toast} from 'react-toastify'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-
+import '../../Style/register.css'
 const Register = () => {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
@@ -33,10 +32,11 @@ const Register = () => {
 
     }
   return (
-    <Layout title={"Register - Book App"}>
-      <div className="register">
-        <h2>Register Page</h2>
+    <Layout title={"Register - Book Store App"}>
+      <div className="form-container">
+        
         <form onSubmit={handleSubmit}>
+        <h3 className='title'>Register Form</h3>
           <div className="mb-3">
             <input
               type="text"
@@ -59,9 +59,6 @@ const Register = () => {
               required 
             />
           </div>
-          <div id="emailHelp" className="form-text">
-              We'll never share your email with anyone else.
-            </div>
           <div className="mb-3">
             <input
               type="password"
