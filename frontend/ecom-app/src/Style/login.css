@@ -14,10 +14,10 @@
    .lgform-container form {
     padding: 20px;
     background-color: white;
-    /* border: 1px solid red; */ 
+    /* border: 1px solid red;  */
     box-shadow: rgb(0,0,0,0.35) 0px 5px 15px;
     width: 25%;
-    height: 60%;
+    /* height: 60%; */
    }
    .lgform-container form .title {
      text-align: center;

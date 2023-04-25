@@ -10,16 +10,17 @@ const Register = () => {
     const [password, setPassword] = useState("")
     const [phone, setPhone] = useState("")
     const [address, setAddress] = useState("")
+    const [answer, setAnswer] = useState("")
     const navigate = useNavigate()
 
     const handleSubmit= async(e)=>{
         e.preventDefault()
         try{
             const res = await axios.post("http://localhost:5200/api/v1/auth/register", 
-            {name, email, password, phone, address}
+            {name, email, password, phone, address,answer}
             );
             if(res && res.data.success){
-                toast.success(res.data && res.data.message)
+                 toast.success(res.data && res.data.message)
                 navigate('/login')
                 alert('User Register Successfully..🤩')
             }else{
@@ -89,6 +90,17 @@ const Register = () => {
               className="form-control"
               id="exampleInputAddress"
               placeholder='Address'
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="text"
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+              className="form-control"
+              id="exampleInputAddress"
+              placeholder='What is your Favourite book name ?'
               required
             />
           </div>

@@ -67,6 +67,11 @@
                 required
               />
             </div>
+            <div className='mb-3'>
+            <button type="submit" onClick={() => {navigate('/forgot-password')}} className="btn btn-primary">
+              Forgot Password
+            </button>
+            </div>
             <button type="submit" className="btn btn-primary">
               Login
             </button>
