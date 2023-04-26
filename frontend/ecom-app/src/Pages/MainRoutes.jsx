@@ -14,6 +14,8 @@ import AdminDashboard from './Admin/AdminDashboard'
 import CreateCategory from './Admin/CreateCategory'
 import CreateProduct from './Admin/CreateProduct'
 import Users from './Admin/Users'
+import Orders from './User/Orders'
+import Profile from './User/Profile'
 
 const MainRoutes = () => {
   return (
@@ -22,6 +24,8 @@ const MainRoutes = () => {
             <Route path='/' element={<HomePage />}/>
             <Route path='/dashboard' element={<PrivateRoute />}>
               <Route path='user' element={<DashBoard />} />
+              <Route path='user/orders' element={<Orders/>} />
+              <Route path='user/profile' element={<Profile/>} />
             </Route>
             <Route path='/dashboard' element={<AdminRoute />}>
               <Route path='admin' element={<AdminDashboard />} />
