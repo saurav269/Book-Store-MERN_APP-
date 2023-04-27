@@ -85,7 +85,22 @@ const UpdateProduct = () => {
       }
     } catch (err) {
       console.log(err);
-      toast.error();
+      toast.error("Something Wrong");
+    }
+  };
+  //FOR DELETEING
+  const handleDelete = async () => {
+    try {
+      let answer = window.prompt("Are You Sure want to delete this Product?");
+      if (!answer) return;
+      const { data } = await axios.delete(
+        `http://localhost:5200/api/v1/product/delete-product/${id}`
+      );
+      toast.success("Product has been deleted");
+      navigate("/dashboard/admin/products");
+    } catch (err) {
+      console.log(err);
+      toast.error("Something went Wrong");
     }
   };
   return (
@@ -212,6 +227,11 @@ const UpdateProduct = () => {
               <div className="md-3" style={{ marginTop: "10px" }}>
                 <button className="btn btn-primary" onClick={handleUpdate}>
                   UPDATE PRODUCT
+                </button>
+              </div>
+              <div className="md-3" style={{ marginTop: "10px" }}>
+                <button className="btn btn-danger" onClick={handleDelete}>
+                  DELETE PRODUCT
                 </button>
               </div>
             </div>

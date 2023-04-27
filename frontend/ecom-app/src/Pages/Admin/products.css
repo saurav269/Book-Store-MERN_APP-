@@ -7,3 +7,10 @@
     text-decoration: none !important;
     color: rgb(193, 255, 127);
 }
+.row{
+    background-color: #e1bbc8;
+    background-image: linear-gradient(0deg, #5ab8f7 0%, #f493ef 100%);
+};
+.text-center{
+    color: beige;
+}
