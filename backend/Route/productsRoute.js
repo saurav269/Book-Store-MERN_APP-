@@ -15,16 +15,14 @@ const router = express.Router()
 //Routes
 router.post(
     '/create-product', 
-    requireSignIn, 
-    isAdmin,
     formidable(),
     createProductController)
 
-    //Routes
+    // FOR UPDATINGRoutes
      router.put(
     '/update-product/:pid', 
-    requireSignIn, 
-    isAdmin,
+    // requireSignIn, 
+    // isAdmin,
     formidable(),
     updateProductController)
 

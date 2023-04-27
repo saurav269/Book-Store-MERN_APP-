@@ -1,0 +1,9 @@
+.p_box{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+.product-link{
+    text-decoration: none !important;
+    color: rgb(193, 255, 127);
+}

@@ -17,13 +17,13 @@ import {
  //create category
  router.post(
     '/create-category', 
-    requireSignIn, 
-    isAdmin,
+    // requireSignIn, 
+    // isAdmin,
     createCategoryController
     );
 
   //UPDATE category
-  router.put('/update-category/:id', requireSignIn, isAdmin, updateCategoryController);
+  router.put('/update-category/:id', updateCategoryController);
 
   //GET ALL Categories
   router.get('/get-category', categoryController)
@@ -32,7 +32,7 @@ import {
  router.get('/single-category/:slug', singleCategoryController)
 
  //DELETE Category
- router.delete('/delete-category/:id',requireSignIn, isAdmin, deleteCategoryController)
+ router.delete('/delete-category/:id', deleteCategoryController)
 
 
  export default router;

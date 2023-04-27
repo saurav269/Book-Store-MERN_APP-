@@ -81,11 +81,11 @@
          }
 
          //creating Token
-         const token = await JWT.sign({_id : user._id}, process.env.JWT_SEC,{
-            expiresIn : '4d'
+         const token = JWT.sign({_id : user._id}, process.env.JWT_SEC,{
+            expiresIn : '7d'
          });
          res.status(200).send({
-            success:true,
+            success:true, 
             message : 'Login Successfully',
             user : {
                _id : user._id,

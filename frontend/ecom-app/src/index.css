@@ -18,8 +18,8 @@
   text-transform: uppercase;
   box-shadow: 0px 8px 6px -6px gray;
   border-bottom: solid gray;
-  position: sticky;
-  top: 0px;
+  /* position: sticky;
+  top: 0px; */
 }
 
 .nav-link{
@@ -110,3 +110,4 @@
 }
 
 /* =====================Register css======================== */
+
