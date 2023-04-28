@@ -7,10 +7,30 @@
     text-decoration: none !important;
     color: rgb(193, 255, 127);
 }
-.row{
+/* .row{
     background-color: #e1bbc8;
     background-image: linear-gradient(0deg, #5ab8f7 0%, #f493ef 100%);
-};
-.text-center{
+}; */
+/* .text-center{
     color: beige;
+} */
+/* .container-fluid{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    margin: auto;
+    width: 100%;
+} */
+body{
+    background-color: #ecf69e;
+    background: -webkit-linear-gradient(
+      to right,
+      #ecf69e,
+      rgb(36, 180, 209)
+    );
+    background: linear-gradient(
+      to right,
+      #ecf69e,
+      rgb(36, 180, 209)
+    );
 }

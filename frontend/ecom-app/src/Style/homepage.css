@@ -1,0 +1,13 @@
+.btn_div{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.mcard{
+    /* border: 1px solid red; */
+    width: 90%;
+    background-color: white;
+    text-align: center;
+    border-radius: 7px;
+}

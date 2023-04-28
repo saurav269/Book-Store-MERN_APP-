@@ -202,3 +202,69 @@ import fs from 'fs'
         })
     }
   };
+
+  //For filtering Products
+  export const productFiltersController=async(req, res)=>{
+    try{
+        const { checked, radio} = req.body;
+        let args = {}
+        if(checked.length > 0) args.category = checked
+        if(radio.length) args.price = {$gte: radio[0], $lte:radio[1]}
+        const products = await productModel.find(args)
+        res.status(200).send({
+            success : true,
+            message : 'Product filtered successfully',
+            products,
+        });
+    }catch(err){
+        console.log(err)
+        res.status(400).send({
+            success : false,
+            message : 'Error while Filtering products',
+            err,
+        })
+    }
+  };
+
+  //FOR PAGINATION
+  export const productCountController=async(req, res)=>{
+    try{
+        const total = await productModel.find({}).estimatedDocumentCount()
+        res.status(200).send({
+            success : true,
+            message : 'Pagination done successfully',
+            total,
+        });
+
+    }catch(err){
+        console.log(err)
+        res.status(400).send({
+            success : false,
+            message : 'Error while Pagination products',
+            err,
+        })  
+    }
+  };
+
+  //FOR PER PAGE PRODUCT
+  export const productListController=async(req, res)=>{
+    try{
+        const perPage = 3;
+        const page = req.params.page ? req.params.page : 1;
+        const products = await productModel.find({}).select('-image').skip((page-1) * perPage).limit(perPage).sort({createdAt : -1});
+        res.status(200).send({
+            success : true,
+            message : 'Pagination per page done successfully',
+            products,
+        });
+
+    }catch(err){
+        console.log(err)
+        res.status(400).send({
+            success : false,
+            message : 'Error in per page products',
+            err,
+        }) 
+
+    }
+  }
