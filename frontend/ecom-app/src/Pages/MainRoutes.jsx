@@ -18,12 +18,22 @@ import Orders from './User/Orders'
 import Profile from './User/Profile'
 import Products from './Admin/Products'
 import UpdateProduct from './Admin/UpdateProduct'
+import SearchPage from './SearchPage'
+import ProductDetails from './ProductDetails'
+import Categories from './Categories'
+import CategoryProduct from './CategoryProduct'
+import CartPage from './CartPage'
 
 const MainRoutes = () => {
   return (
     <div>
         <Routes>
             <Route path='/' element={<HomePage />}/>
+            <Route path='/product/:slug' element={<ProductDetails />}/>
+            <Route path='/categories' element={<Categories />}/>
+            <Route path='/cart' element={<CartPage />}/>
+            <Route path='/category/:slug' element={<CategoryProduct />}/>
+            <Route path='/search' element={<SearchPage />}/>
             <Route path='/dashboard' element={<PrivateRoute />}>
               <Route path='user' element={<DashBoard />} />
               <Route path='user/orders' element={<Orders/>} />

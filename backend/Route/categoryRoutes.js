@@ -17,8 +17,8 @@ import {
  //create category
  router.post(
     '/create-category', 
-    // requireSignIn, 
-    // isAdmin,
+    requireSignIn, 
+    isAdmin,
     createCategoryController
     );
 

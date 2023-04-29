@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 const Products = () => {
   const [product, setProduct] = useState([]);
+  const [products, setProducts] = useState([]);
 
   //Getting all products
   const getAllProducts = async () => {
@@ -21,6 +22,8 @@ const Products = () => {
       toast.error("Something went wrong");
     }
   };
+
+
   //USING useEffect Hook
   useEffect(() => {
     getAllProducts();
@@ -33,14 +36,14 @@ const Products = () => {
         </div>
         <div className="col-md-9">
           <h1 className="text-center" style={{ marginTop : "10px"}}>All Books Collection</h1>
-          <div className="p_box">
+          <div className="d-flex flex-wrap">
             {product?.map((ele) => (
               <Link 
               key={ele._id} 
               to={`/dashboard/admin/product/${ele.slug}`}
               className="product-link"
               >
-                <div className="card m-2" style={{ width: "80%"}}>
+                <div className="card m-2" style={{ width: "18rem"}}>
                   <img
                     src={`http://localhost:5200/api/v1/product/product-photo/${ele._id}`}
                     className="card-img-top"

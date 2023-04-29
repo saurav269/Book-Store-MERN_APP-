@@ -4,6 +4,10 @@ import axios from "axios";
 import "../Style/homepage.css";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../Components/Prices";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../Context/Cart";
+import { toast } from "react-hot-toast";
+import Avatar from "../Components/Avatar";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -12,7 +16,9 @@ const HomePage = () => {
   const [radio, setRadio] = useState([]);
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
+  const [cart, setCart] = useCart()
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   //For get all the categories
   const getAllCategory = async () => {
@@ -92,26 +98,27 @@ const HomePage = () => {
   };
 
   //LOAD MORE FUNCTIONALITY
-  const loadMore = async() => {
-    try{
-      setLoading(true)
-      const {data} = await axios.get(`http://localhost:5200/api/v1/product/product-list/${page}`)
-      setProducts([...products, ...data?.products])
-      setLoading(false)
-    }catch(err){
-      console.log(err)
-      setLoading(false)
+  const loadMore = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.get(
+        `http://localhost:5200/api/v1/product/product-list/${page}`
+      );
+      setProducts([...products, ...data?.products]);
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
+      setLoading(false);
     }
   };
-  useEffect(() =>{
-    if(page === 1) return;
-    loadMore()
-  },[page])
-
+  useEffect(() => {
+    if (page === 1) return;
+    loadMore();
+  }, [page]);
 
   return (
     <Layout title={"Book Store - Shop Now"}>
-      <div className="row mt-3">
+      <div className="row ms-3 mt-4">
         <div className="col-md-2">
           <h4 className="text-center">Filter By Category</h4>
           <div className="d-flex flex-column">
@@ -147,20 +154,20 @@ const HomePage = () => {
         <div className="col-md-9">
           {/* {JSON.stringify(radio, null, 4)} */}
           <h1 className="text-center">All Books</h1>
-          <div className="p_box">
+          <div className="d-flex flex-wrap ms-3">
             {products?.map((ele) => (
-              <div className="mcard m-2">
+              <div className="card m-3" style={{ width: "18rem",}}>
                 <img
                   src={`http://localhost:5200/api/v1/product/product-photo/${ele._id}`}
                   className="card-img-top"
                   alt={ele.name}
-                  style={{
-                    width: "80%",
-                    display: "block",
-                    margin: "auto",
-                    marginTop: "10px",
-                    borderRadius: "10px",
-                  }}
+                  // style={{
+                  //   width: "20rem",
+                  //   display: "block",
+                  //   margin: "auto",
+                  //   marginTop: "10px",
+                  //   borderRadius: "10px",
+                  // }}
                 />
                 <div className="card-body">
                   <h5 className="card-title">{ele.name}</h5>
@@ -169,12 +176,19 @@ const HomePage = () => {
                   </p>
                   <p className="card-text">Price : ₹{ele.price}</p>
                   <div className="btn_div">
-                    <button className="btn btn-primary ms-1">
+                    <button
+                      className="btn btn-primary ms-1"
+                      onClick={() => navigate(`/product/${ele.slug}`)}
+                    >
                       See Details
                     </button>
                     <button
                       className="btn btn-secondary ms-1"
                       style={{ backgroundColor: "tomato" }}
+                      onClick={() => {
+                        setCart([...cart, ele]);
+                        toast.success('Item added successfully')
+                      }}
                     >
                       ADD TO CARD 🛒
                     </button>
@@ -183,10 +197,10 @@ const HomePage = () => {
               </div>
             ))}
           </div>
-          <div className="m-2 p-3" style={{textAlign:"center"}} >
+          <div className="m-2 p-3" style={{ textAlign: "center" }}>
             {products && products.length < total && (
               <button
-                className="btn btn-warning" 
+                className="btn btn-warning"
                 onClick={(e) => {
                   e.preventDefault();
                   setPage(page + 1);

@@ -1,6 +1,7 @@
 import slugify from "slugify";
 import productModel from "../Models/productModel.js";
 import fs from 'fs'
+import categoryModel from "../Models/categoryModel.js";
 
 
   export const createProductController= async(req,res)=>{
@@ -267,4 +268,72 @@ import fs from 'fs'
         }) 
 
     }
-  }
+  };
+
+  //SEARCH PRODUCT FUNCTION
+  export const searchProductController=async(req,res)=>{
+      try{
+        const {keyword} = req.params;
+        const results = await productModel.find({
+            $or : [
+                {name : {$regex : keyword, $options : 'i'}},
+                {description : {$regex : keyword, $options : 'i'}},
+            ]
+        }).select('-image');
+        res.json(results);
+      }catch(err){
+        console.log(err)
+        res.status(400).send({
+            success : false,
+            message : 'Error in searching products',
+            err,
+        }) 
+      }
+  };
+
+   //FOR SIMILAR PRODUCT FUNCTION
+    export const relatedProductController=async(req, res)=>{
+        try{
+            const {pid, cid} = req.params;
+            const products = await productModel.find({
+                category:cid,
+                _id:{$ne:pid}
+            }).select('-image').limit(3).populate('category')
+            res.status(200).send({
+                success : true,
+                message : 'Similar Product done successfully',
+                products,
+            });
+        }catch(err){
+            console.log(err)
+        res.status(400).send({
+            success : false,
+            message : 'Error in Similar products function',
+            err,
+        }) 
+
+        }
+    };
+
+    //CATEGORY WISE PRODUCT
+    export const productCategoryController= async(req, res)=>{
+        try{
+            const category = await categoryModel.findOne({slug:req.params.slug})
+            const products = await productModel.find({category}).populate('category')
+            res.status(200).send({
+                success : true,
+                message : 'Cate wise Product done successfully',
+                category,
+                products ,
+            });
+
+        }catch(err){
+            console.log(err)
+            res.status(400).send({
+                success : false,
+                message : 'Error while getting cate wise products function',
+                err,
+            }) 
+
+        }
+    } 
