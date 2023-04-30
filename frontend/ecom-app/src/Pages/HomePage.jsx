@@ -16,7 +16,7 @@ const HomePage = () => {
   const [radio, setRadio] = useState([]);
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
-  const [cart, setCart] = useCart()
+  const [cart, setCart] = useCart();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -156,7 +156,7 @@ const HomePage = () => {
           <h1 className="text-center">All Books</h1>
           <div className="d-flex flex-wrap ms-3">
             {products?.map((ele) => (
-              <div className="card m-3" style={{ width: "18rem",}}>
+              <div className="card m-3" style={{ width: "18rem" }}>
                 <img
                   src={`http://localhost:5200/api/v1/product/product-photo/${ele._id}`}
                   className="card-img-top"
@@ -187,7 +187,11 @@ const HomePage = () => {
                       style={{ backgroundColor: "tomato" }}
                       onClick={() => {
                         setCart([...cart, ele]);
-                        toast.success('Item added successfully')
+                        localStorage.setItem(
+                          "cart",
+                          JSON.stringify([...cart, ele])
+                        );
+                        toast.success("Item added successfully");
                       }}
                     >
                       ADD TO CARD 🛒

@@ -1,4 +1,5 @@
    import { comparePassword, hashPassword } from '../Helpers/authHelper.js'
+import orderModel from '../Models/orderModel.js';
    import userModel from '../Models/userModel.js'
    import JWT from 'jsonwebtoken'
    
@@ -42,7 +43,6 @@
             message : 'User Register Successfully',
             user
          })
-
       }catch(err){
          console.log(err)
          res.status(600).send({
@@ -92,6 +92,7 @@
                name : user.name,
                email : user.email,
                phone:user.phone,
+               address : user.address,
                role:user.role,
             },
             token,
@@ -158,6 +159,52 @@
          console.log(err)
          res.send({err})
       }
+   };
 
+   //Update Profile controller
+
+   export const updateProfileController= async(req, res)=>{
+      try{
+         const {name, email, password, phone, address} = req.body;
+         const user = await userModel.findById(req.user._id);
+         //checking password
+         if(password && password.length < 6){
+            return res.json({error : 'Password is required and 6 charecter long'})
+         }
+         const hashedPassword = password ? await hashPassword(password) : undefined
+         const updatedUser = await userModel.findByIdAndUpdate(req.user._id,{
+            name : name || user.name,
+            password : hashedPassword || user.password,
+            phone : phone || user.phone,
+            address: address || user.address
+         },{new : true})
+         res.status(200).send({
+            success : true,
+            message : 'User Profile Updated Successfully',
+            updatedUser
+         })
+      }catch(err){
+         console.log(err)
+         res.status(400).send({
+            success : false,
+            message : 'Error while update Profile',
+            err
+         })
+      }
+   };
+
+   //FOR GETTING ORDERS
+   export const getOrdersController= async(req,res)=>{
+      try{
+         const orders = await orderModel.find({buyer:req.user._id}).populate("products","-image").populate("buyer","name")
+         res.json(orders)
+      }catch(err){
+         console.log(err)
+         res.status(400).send({
+            success : false,
+            message : 'Error while getting Orders',
+            err
+         })
+      }
    }
   

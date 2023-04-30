@@ -17,6 +17,7 @@ const DashBoard = () => {
                  <h3>User Name : {auth?.user?.name}</h3>
                  <h3>User Email-id : {auth?.user?.email}</h3>
                  <h3>User Mobile Number : {auth?.user?.phone}</h3>
+                 <h3>User Address : {auth?.user?.address}</h3>
               </div>
             </div>
           </div>

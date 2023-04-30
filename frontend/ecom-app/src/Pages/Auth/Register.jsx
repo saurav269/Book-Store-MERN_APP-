@@ -13,6 +13,7 @@ const Register = () => {
     const [answer, setAnswer] = useState("")
     const navigate = useNavigate()
 
+    //FORM FUNCTION
     const handleSubmit= async(e)=>{
         e.preventDefault()
         try{
@@ -30,12 +31,10 @@ const Register = () => {
             console.log(err)
             toast.error('Something went Wrong')
         }
-
     }
   return (
     <Layout title={"Register - Book Store App"}>
-      <div className="form-container">
-        
+      <div className="form-container"> 
         <form onSubmit={handleSubmit}>
         <h3 className='title'>Register Form</h3>
           <div className="mb-3">
