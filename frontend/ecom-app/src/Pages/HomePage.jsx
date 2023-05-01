@@ -174,7 +174,7 @@ const HomePage = () => {
                   <p className="card-text">
                     {ele.description.substring(0, 35)}...
                   </p>
-                  <p className="card-text">Price : ₹{ele.price}</p>
+                  <h5 className="card-text" style={{color:"green"}}>Price : ₹{ele.price}</h5>
                   <div className="btn_div">
                     <button
                       className="btn btn-primary ms-1"

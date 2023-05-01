@@ -206,5 +206,39 @@ import orderModel from '../Models/orderModel.js';
             err
          })
       }
-   }
+   };
+
+   //DOING ORDER BY ADMIN SIDE 
+   export const getAllOrdersController = async(req,res)=>{
+      try{
+         const orders = await orderModel.find({}).populate("products","-image").populate("buyer","name").sort({createdAt : '-1'})
+         res.json(orders);
+      }catch(err){
+         console.log(err)
+         res.status(400).send({
+            success : false,
+            message : 'Error while getting Orders',
+            err
+         })
+      }
+   };
+
+   //UPDATING ORDERS BY ADMIN SIDE
+   export const orderStatusController=async(req, res)=>{
+      try{
+         const {orderId} = req.params;
+         const {status} = req.body
+         const orders = await orderModel.findByIdAndUpdate(orderId, {status},{new:true})
+         res.json(orders);
+      }catch(err){
+         console.log(err)
+         res.status(500).send({
+            success : false,
+            message : 'Error while Updating Orders',
+            err
+         })
+      }
+   };
+
+
   

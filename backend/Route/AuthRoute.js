@@ -2,8 +2,10 @@
    import express from 'express'
 import { 
    forgotPasswordController,
+    getAllOrdersController,
     getOrdersController,
     loginControler,
+    orderStatusController,
     registerControler, 
     testController,
     updateProfileController
@@ -45,5 +47,11 @@ import { isAdmin, requireSignIn } from '../Middlewares/authMiddleware.js';
 
       //FOR CHECKING ORDERS
       router.get('/orders', requireSignIn, getOrdersController)
+
+      //All Orders
+      router.get('/all-orders', requireSignIn,isAdmin, getAllOrdersController)
+
+      //ORDER STATUS UPDATE PURPOSE
+      router.put('/order-status/:orderId', requireSignIn,isAdmin, orderStatusController)
 
    export default router
