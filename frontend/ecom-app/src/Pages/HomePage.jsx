@@ -6,7 +6,7 @@ import { Checkbox, Radio } from "antd";
 import { Prices } from "../Components/Prices";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../Context/Cart";
-import { toast } from "react-hot-toast";
+import  toast  from "react-hot-toast";
 import Avatar from "../Components/Avatar";
 
 const HomePage = () => {
@@ -24,7 +24,7 @@ const HomePage = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5200/api/v1/category/get-category"
+        "https://pear-worried-bonobo.cyclic.app/api/v1/category/get-category"
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -57,7 +57,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `http://localhost:5200/api/v1/product/product-list/${page}`
+        `https://pear-worried-bonobo.cyclic.app/api/v1/product/product-list/${page}`
       );
       setLoading(false);
       setProducts(data.products);
@@ -76,7 +76,7 @@ const HomePage = () => {
   const filterProduct = async () => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5200/api/v1/product/product-filters",
+        "https://pear-worried-bonobo.cyclic.app/api/v1/product/product-filters",
         { checked, radio }
       );
       setProducts(data?.products);
@@ -89,7 +89,7 @@ const HomePage = () => {
   const getTotalCount = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5200/api/v1/product/product-count"
+        "https://pear-worried-bonobo.cyclic.app/api/v1/product/product-count"
       );
       setTotal(data?.total);
     } catch (err) {
@@ -102,7 +102,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `http://localhost:5200/api/v1/product/product-list/${page}`
+        `https://pear-worried-bonobo.cyclic.app/api/v1/product/product-list/${page}`
       );
       setProducts([...products, ...data?.products]);
       setLoading(false);
@@ -154,11 +154,11 @@ const HomePage = () => {
         <div className="col-md-9">
           {/* {JSON.stringify(radio, null, 4)} */}
           <h1 className="text-center">All Books</h1>
-          <div className="d-flex flex-wrap ms-3">
+          <div className="d-flex flex-wrap ms-3" style={{border : "0px solid green", margin:"auto", paddingLeft : "30px"}}>
             {products?.map((ele) => (
-              <div className="card m-3" style={{ width: "18rem" }}>
+              <div className="card m-2" style={{ width: "18rem",border : "0px solid red", margin : "auto"}}>
                 <img
-                  src={`http://localhost:5200/api/v1/product/product-photo/${ele._id}`}
+                  src={`https://pear-worried-bonobo.cyclic.app/api/v1/product/product-photo/${ele._id}`}
                   className="card-img-top"
                   alt={ele.name}
                   // style={{

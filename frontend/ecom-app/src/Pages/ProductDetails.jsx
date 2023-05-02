@@ -2,18 +2,21 @@ import React, { useEffect, useState } from "react";
 import Layout from "../Components/Layout/Layout";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { useCart } from "../Context/Cart";
+import  toast  from "react-hot-toast";
 
 const ProductDetails = () => {
   const params = useParams();
   const [product, setProduct] = useState({});
   const [relatedProduct, setRelatedProduct] = useState([]);
+  const [cart, setCart] = useCart();
   const navigate= useNavigate()
 
   //GET PRODUCT
   const getProduct = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5200/api/v1/product/get-product/${params.slug}`
+        `https://pear-worried-bonobo.cyclic.app/api/v1/product/get-product/${params.slug}`
       );
       setProduct(data?.product);
       getSimilarProduct(data?.product._id, data?.product.category._id);
@@ -30,7 +33,7 @@ const ProductDetails = () => {
   const getSimilarProduct = async (pid, cid) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5200/api/v1/product/related-product/${pid}/${cid}`
+        `https://pear-worried-bonobo.cyclic.app/api/v1/product/related-product/${pid}/${cid}`
       );
       setRelatedProduct(data?.products);
     } catch (err) {
@@ -43,7 +46,7 @@ const ProductDetails = () => {
       <div className="row container mt-4">
         <div className="col-md-6">
           <img
-            src={`http://localhost:5200/api/v1/product/product-photo/${product._id}`}
+            src={`https://pear-worried-bonobo.cyclic.app/api/v1/product/product-photo/${product._id}`}
             className="card-img-top"
             alt={product.name}
             style={{ width: "55%", height: "400px",display: "block",
@@ -62,6 +65,14 @@ const ProductDetails = () => {
           <button
             className="btn btn-secondary ms-1"
             style={{ backgroundColor: "tomato" }}
+            onClick={() => {
+              setCart([...cart, product]);
+              localStorage.setItem(
+                "cart",
+                JSON.stringify([...cart, product])
+              );
+              toast.success("Item added successfully");
+            }}
           >
             ADD TO CARD 🛒
           </button>
@@ -75,7 +86,7 @@ const ProductDetails = () => {
             {relatedProduct?.map((ele) => (
               <div className="card m-2" style={{ width: "18rem",borderRadius: "10px", }}>
                 <img
-                  src={`http://localhost:5200/api/v1/product/product-photo/${ele._id}`}
+                  src={`https://pear-worried-bonobo.cyclic.app/api/v1/product/product-photo/${ele._id}`}
                   className="card-img-top"
                   alt={ele.name}
                    style={{
@@ -104,6 +115,14 @@ const ProductDetails = () => {
                     <button
                       className="btn btn-secondary ms-1"
                       style={{ backgroundColor: "tomato" }}
+                      onClick={() => {
+                        setCart([...cart, ele]);
+                        localStorage.setItem(
+                          "cart",
+                          JSON.stringify([...cart, ele])
+                        );
+                        toast.success("Item added successfully");
+                      }}
                     >
                       ADD TO CARD 🛒
                     </button>

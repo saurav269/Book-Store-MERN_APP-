@@ -20,7 +20,7 @@ const CreateCategory = () => {
     //  console.log('hello')
     try {
       const { data } = await axios.post(
-        "http://localhost:5200/api/v1/category/create-category",
+        "https://pear-worried-bonobo.cyclic.app/api/v1/category/create-category",
         { name }
       );
       console.log(data);
@@ -41,7 +41,7 @@ const CreateCategory = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5200/api/v1/category/get-category"
+        "https://pear-worried-bonobo.cyclic.app/api/v1/category/get-category"
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -61,7 +61,7 @@ const CreateCategory = () => {
     try {
       // console.log(e)
       const { data } = await axios.put(
-        `http://localhost:5200/api/v1/category/update-category/${selected._id}`,
+        `https://pear-worried-bonobo.cyclic.app/api/v1/category/update-category/${selected._id}`,
         { name: updatedName }
       );
       if (data.success) {
@@ -84,7 +84,7 @@ const CreateCategory = () => {
       try {
         // console.log(e)
         const { data } = await axios.delete(
-          `http://localhost:5200/api/v1/category/delete-category/${pId}`,
+          `https://pear-worried-bonobo.cyclic.app/api/v1/category/delete-category/${pId}`,
         );
         if (data.success) {
           toast.success(`category has been deleted`);

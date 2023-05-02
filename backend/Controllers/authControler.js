@@ -196,7 +196,7 @@ import orderModel from '../Models/orderModel.js';
    //FOR GETTING ORDERS
    export const getOrdersController= async(req,res)=>{
       try{
-         const orders = await orderModel.find({buyer:req.user._id}).populate("products","-image").populate("buyer","name")
+         const orders = await orderModel.find({buyer:req.user._id}).populate("products","-image").populate("buyer","name").sort({createdAt : '-1'})
          res.json(orders)
       }catch(err){
          console.log(err)

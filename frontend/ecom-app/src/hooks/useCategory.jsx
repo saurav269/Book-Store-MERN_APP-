@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
     //FOR GETTING CATEGORIES
     const getCategories = async()=>{
         try{
-            const {data} = await axios.get('http://localhost:5200/api/v1/category/get-category')
+            const {data} = await axios.get('https://pear-worried-bonobo.cyclic.app/api/v1/category/get-category')
             setCategories(data?.category)
         }catch(err){ 
             console.log(err)

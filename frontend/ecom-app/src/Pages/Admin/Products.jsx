@@ -14,7 +14,7 @@ const Products = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5200/api/v1/product/get-product"
+        "https://pear-worried-bonobo.cyclic.app/api/v1/product/get-product"
       );
       setProduct(data.products);
     } catch (err) {
@@ -45,7 +45,7 @@ const Products = () => {
               >
                 <div className="card m-2" style={{ width: "18rem"}}>
                   <img
-                    src={`http://localhost:5200/api/v1/product/product-photo/${ele._id}`}
+                    src={`https://pear-worried-bonobo.cyclic.app/api/v1/product/product-photo/${ele._id}`}
                     className="card-img-top"
                     alt={ele.name}
                     // style={{width : '70%'}}

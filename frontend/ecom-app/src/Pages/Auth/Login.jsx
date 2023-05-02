@@ -17,7 +17,7 @@
     const handleSubmit= async(e)=>{
         e.preventDefault()
         try{
-            const res = await axios.post("http://localhost:5200/api/v1/auth/login", 
+            const res = await axios.post("https://pear-worried-bonobo.cyclic.app/api/v1/auth/login", 
             {email, password}
             );
             if(res && res.data.success){

@@ -25,7 +25,7 @@ const CreateProduct = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5200/api/v1/category/get-category"
+        "https://pear-worried-bonobo.cyclic.app/api/v1/category/get-category"
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -51,7 +51,7 @@ const CreateProduct = () => {
       productData.append("quantity", quantity)
       productData.append("image", image)
       productData.append("category", category)
-      const {data} = axios.post('http://localhost:5200/api/v1/product/create-product', productData)
+      const {data} = axios.post('https://pear-worried-bonobo.cyclic.app/api/v1/product/create-product', productData)
       if(data?.success){
         toast.error(data?.message)
       }else{

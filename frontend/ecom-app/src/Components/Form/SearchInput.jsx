@@ -12,7 +12,7 @@ const SearchInput = () => {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        `http://localhost:5200/api/v1/product/search/${values.keyword}`
+        `https://pear-worried-bonobo.cyclic.app/api/v1/product/search/${values.keyword}`
       );
       setValues({ ...values, results: data });
       navigate("/search");
@@ -30,6 +30,7 @@ const SearchInput = () => {
           aria-label="Search"
           value={values.keyword}
           onChange={(e) => setValues({ ...values, keyword: e.target.value })}
+          
         />
         <button className="btn btn-outline-success" type="submit">
           Search

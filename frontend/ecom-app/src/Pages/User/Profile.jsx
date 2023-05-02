@@ -27,7 +27,7 @@ const Profile = () => {
     e.preventDefault();
     try {
       const { data } = await axios.put(
-        "http://localhost:5200/api/v1/auth/profile",
+        "https://pear-worried-bonobo.cyclic.app/api/v1/auth/profile",
         { name, email, password, phone, address }
       );
       if (data?.error) {

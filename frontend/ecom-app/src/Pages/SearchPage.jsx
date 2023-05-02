@@ -18,7 +18,7 @@ const SearchPage = () => {
             {values?.results.map((ele) => (
               <div className="card m-2" style={{ width: "18rem" }}>
                 <img
-                  src={`http://localhost:5200/api/v1/product/product-photo/${ele._id}`}
+                  src={`https://pear-worried-bonobo.cyclic.app/api/v1/product/product-photo/${ele._id}`}
                   className="card-img-top"
                   alt={ele.name}
                   // style={{
