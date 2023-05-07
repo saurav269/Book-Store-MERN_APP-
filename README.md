@@ -10,3 +10,13 @@
 <h5>⚡BootStrap</h5>
 <h5>⚡JavaScript</h5>
 <h5>⚡CSS</h5>
+
+<h1>Features :</h1>
+<h5>✨Home Page with Navbar and Footer</h5>
+<h5>✨Authentication</h5>
+<h5>✨Full CRUD operation in Admin Page</h5>
+<h5>✨Search Functionality</h5>
+<h5>✨Filter and sort products by Category and price</h5>
+<h5>✨Single Product Page</h5>
+<h5>✨Cart page</h5>
+<h5>✨Add address details and make payment</h5>
