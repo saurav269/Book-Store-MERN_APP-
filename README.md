@@ -34,3 +34,20 @@
 
 ![Screenshot (304)](https://user-images.githubusercontent.com/110054999/236812523-40310ec2-c04d-4318-896f-dd8c7b7a33a1.png)
 
+
+<h3>Filter Functionality</h3>
+
+
+![Screenshot (305)](https://user-images.githubusercontent.com/110054999/236812856-2aa94779-47a9-4166-940c-72931a61f79f.png)
+
+<h3>Full CRUD operation in ADMIN Panel</h3>
+
+![Screenshot (307)](https://user-images.githubusercontent.com/110054999/236813256-5a13f624-9829-4c79-ba77-ea2349ed6d48.png)
+![Screenshot (308)](https://user-images.githubusercontent.com/110054999/236813280-35752cd4-e9d4-45c6-b746-b53f2e038caf.png)
+
+
+![Screenshot (313)](https://user-images.githubusercontent.com/110054999/236813410-8ff1ef20-24fe-4231-b125-493ee5a5d42d.png)
+
+
+
+![Screenshot (314)](https://user-images.githubusercontent.com/110054999/236813426-5620ab4b-7da0-4553-950a-683a4f7460f0.png)
