@@ -49,5 +49,18 @@
 ![Screenshot (313)](https://user-images.githubusercontent.com/110054999/236813410-8ff1ef20-24fe-4231-b125-493ee5a5d42d.png)
 
 
-
 ![Screenshot (314)](https://user-images.githubusercontent.com/110054999/236813426-5620ab4b-7da0-4553-950a-683a4f7460f0.png)
+
+<h3>Single Product Page</h3>
+
+![Screenshot (310)](https://user-images.githubusercontent.com/110054999/236816723-4fd20828-6ae7-47cf-8a57-c9ad18c31e57.png)
+
+
+<h3>Payment Page</h3>
+
+![Screenshot (311)](https://user-images.githubusercontent.com/110054999/236816897-19c4ef9e-d945-4ab7-94ed-4e64607d2346.png)
+
+
+<h3>Order Page</h3>
+
+![Screenshot (312)](https://user-images.githubusercontent.com/110054999/236817089-fa3f1fd6-ede2-47cd-9d14-915afd5eb02f.png)
