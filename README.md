@@ -22,4 +22,7 @@
 <h5>✨Add address details and make payment</h5>
 <h1>Some Glimps of Project :</h1>
 <h3>✨Home Page with Navbar and Footer</h3>
-<img src="https://drive.google.com/drive/folders/1oR1vkpFp5arNijiKK4d7IsadvH49a1S0" alt="hh"/>
+
+![Screenshot (302)](https://user-images.githubusercontent.com/110054999/236811803-720cd56f-1ef3-44ba-8b2f-55b349084ca0.png)
+
+
